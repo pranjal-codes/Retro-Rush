@@ -18,7 +18,7 @@ data class Result(
 ) {
     val imageUrl: String
         get() {
-            return "https://image.tmdb.org/t/p/w500/$backdrop_path"
+            return "https://image.tmdb.org/t/p/w500/$poster_path"
         }
 }
 

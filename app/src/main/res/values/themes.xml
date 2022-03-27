@@ -13,4 +13,21 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="RatingBarTheme" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
+    </style>
+    <style name="TitleStyle" parent="android:Widget.TextView">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/oswald</item>
+        <item name="android:lineSpacingMultiplier">0.75</item>
+    </style>
+
+    <style name="NunitoRegularStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/nunito</item>
+    </style>
+
+    <style name="NunitoSemiBoldStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/nunito_semibold</item>
+    </style>
 </resources>

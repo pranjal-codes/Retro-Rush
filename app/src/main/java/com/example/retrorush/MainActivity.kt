@@ -1,15 +1,18 @@
 package com.example.retrorush
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.retrorush.adapter.MoviesAdapter
+import com.example.retrorush.adapter.OnItemClickListener
 import com.example.retrorush.databinding.ActivityMainBinding
+import com.example.retrorush.models.Result
 import com.example.retrorush.viewModels.MovieViewModel
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var mBinding: ActivityMainBinding
     private var mMovieViewModel: MovieViewModel? = null
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        MoviesAdapter().also {
+        MoviesAdapter(this, this).also {
             mBinding.moviesRecyclerView.adapter = it
             adapter = it
         }
@@ -56,5 +59,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onClick(result: Result) {
+        val i = Intent(this, MovieDetailsActivity::class.java)
+        i.putExtra("movieId", result.id)
+        startActivity(i)
     }
 }
